@@ -25,9 +25,14 @@ In the process of the project evolution all other integration formulas, which we
 
 ## More on the numerical methods used:
 
-## Numerical tests
+## Numerical tests:
 
-## Presentation
+In the `Tests` folder numerous numerical tests can be found. Each test contains a detailed description. Running `test6` is highly encouraged since it can really help you visualise and understand a process of triangulation of the $D$ area.
+
+## Presentation:
+
+In the `Presentation` folder a file called `P1Z28_AGR`, which contains a further discussion on the topis of approximating double integrals over triangular area, can be found.
+As the academic course was conducted in Polish, all the contents of the presentation is sadly available only in Polish.
 
 ## Author:
 
