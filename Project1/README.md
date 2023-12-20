@@ -18,6 +18,11 @@ The aim of the project was to implement a function which calculates the double i
 
 ## About the Implementation:
 
+MATLAB was the imposed programming language for the implementation of the project.
+The process of approximating the double integral over $D$ is performed by the function `P1Z28_AGR_int4n2`. The process of dividing the triangle into $n^2$ triangles is performed by the function `divideTriangleN2`. The functions was implemented in such a way so as to solve a general problem of dividing any triangle given by its vertices $p_0$, $p_1$, $p_2 \in R^2$.
+
+In the process of the project evolution all other integration formulas, which were discussed during the lectures, were also implemented. 
+
 ## More on the numerical methods used:
 
 ## Numerical tests
