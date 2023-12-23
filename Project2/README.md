@@ -1,5 +1,7 @@
 # Project 2: The Eigenvalue Problem for Tridiagonal matrices
 
+This project is currently under development.
+<!-- 
 This project was implemented as a part of Numerical Methods 2 academic course.
 
 ## Table of Contents:
@@ -38,3 +40,4 @@ All contributions, issues, and feature requests are welcome! 🤝
 ## Show your support:
 
 Give a ⭐️ if you like this project and its documentation!
+-->
