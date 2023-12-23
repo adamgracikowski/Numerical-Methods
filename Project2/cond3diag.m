@@ -32,19 +32,23 @@ function res = cond3diag(x, y, tol, iter)
 % res  - structure with the following fields:
 %        res.cond - condition number defined as a absolute value of the 
 %        quotient of the eigenvalue returned from the power method and the
-%        eigenvalue returned by the inverse power method 
+%        eigenvalue returned by the inverse power method.
 %        res.power.eigenvalue - eigenvalue returned by the inverse power
-%        method
+%        method.
+%        res.power.eigenvector - eigenvector corresponding to the found
+%        res.power.eigenvalue.
 %        res.power.iterations - number of the iterations performed by the
-%        algorithm
+%        algorithm.
 %        res.power.last_eigenvector_change - the value of the norm 
 %        evaluated for the stop condition in the last iteration 
-%        of the power method
-%        res.inverse.eigenvalue - analogous to res.power.eigenvalue
+%        of the power method.
+%        res.inverse.eigenvalue - analogous to res.power.eigenvalue.
+%        res.inverse.eigenvector - analogous to res.power.eigenvector
 %        res.inverse.iterations - analogous to res.power.iterations
 %        res.inverse.last_eigenvector_change - analogous to 
 %        res.power.last_eigenvector_change
 
+% handling defaut arguments
 if nargin < 4; iter = [1000, 1000];
 elseif length(iter) == 1; iter = [iter, iter];
 end
@@ -52,11 +56,16 @@ if nargin < 3; tol = [1e-10, 1e-10];
 elseif length(tol) == 1; tol = [tol, tol];
 end
 
+% invoking power method
 power = power3diag(x, y, tol(1), iter(1));
+
+% invoking inverse power method
 inverse = inverse3diag(x, y, tol(2), iter(2));
 
-condition_number = power.eigenvalue / inverse.eigenvalue;
+% evaluating condition number of the matrix
+condition_number = abs(power.eigenvalue / inverse.eigenvalue);
+
 res = struct('power', power, ...
-                'inverse', inverse, ...
-                'cond', condition_number);
+             'inverse', inverse, ...
+             'cond', condition_number);
 end % function

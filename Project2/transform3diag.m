@@ -4,7 +4,7 @@ function [x, y, z, U] = transform3diag(x, y)
 %
 % Transforms a tridiagonal, symmetric and real matrix stored in vectors x
 % and y to an upper-triangular matrix using Householder reflections. 
-% All non-zero elements of vectors used in reflections are stored in matrix
+% All non-zero elements of vectors used in reflections are stored in
 % respective columns of the U matrix.
 % INPUT:
 %   x - vector containing elements on the main diagonal of the matrix.
@@ -17,8 +17,8 @@ function [x, y, z, U] = transform3diag(x, y)
 %   z - vector containing elements on the diagonal above y.
 %       It has one two less than vector x.
 %   U - a 2 by n-1 matrix (where n is the size of the matrix stored in x, 
-%       y and z), which contains non-zero elements of vectors used in 
-%       Householder reflections in its respective columns.
+%       y and z), which contains (its respective columns) non-zero elements
+%       of vectors used in Householder reflections.
 
 % size of the problem
 n = length(x);
@@ -42,7 +42,7 @@ for i = 1:n-1
     y1(i) = 0;
 
     if i < n-1
-        % filling additional diagonal
+        % filling additional z diagonal
         z(i) = h(1,1)*z(i) + h(1,2)*y(i+1);
         y(i+1) = h(2,2)*y(i+1);
     end % if

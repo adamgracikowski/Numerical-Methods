@@ -3,16 +3,19 @@ function u = multiply3diag(x, y, v)
 % Adam Grącikowski, 327350
 %
 % Multiplies a tridiagonal, symmetric and real matrix stored in vectors x
-% and y by a vector v.
+% and y by a column vector v.
 % INPUT:
 %   x - vector containing elements on the main diagonal of the matrix.
 %   y - vector containing elements on the subdiagonal of the matrix.
 %       It has one element less than vector x. Since the matrix is
 %       symmetric, y is also equal to the respective elements of the
 %       supradiagonal.
-%   v - right operand of the multiplication operation
+%   v - right operand of the multiplication operation, that is a column
+%       vector, which length is equal to the size of the tridiagonal
+%       matrix.
 % Output:
-%   u - result of the multiplication
+%   u - result of the multiplication, that is a column vector, which length
+%       is equal to the size of the tridiagonal matrix.
 
 % size of the problem
 n = length(x);

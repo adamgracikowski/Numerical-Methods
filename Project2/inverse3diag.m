@@ -19,12 +19,15 @@ function res = inverse3diag(x, y, tol, iter, u)
 % OUTPUT:
 % res  - structure containing the following fields:
 %        res.eigenvalue - absolute value of the eigenvalue found
-%        by the inverse power method 
+%        by the inverse power method.
+%        res.eigenvector - eigenvector corresponding to the found
+%        res.eigenvalue.
 %        res.iterations - number of iterations, after which the inverse 
-%        power method finished its execution
+%        power method finished its execution.
 %        res.last_eigenvector_change - the value of the norm evaluated
-%        for the stop condition in the last iteration of the algorithm
+%        for the stop condition in the last iteration of the algorithm.
 
+% handling default arguments
 if nargin < 5; u = randn(length(x), 1); end
 if nargin < 4; iter = 1000; end
 if nargin < 3; tol = 1e-10; end
@@ -34,6 +37,7 @@ i = 0;
 % stop condition based on tolerance
 b = false;
 
+% preliminary for the main loop
 u = u / norm(u);
 u0 = u;
 [~, idx] = max(abs(u0));
@@ -67,9 +71,10 @@ while i < iter && ~b
 end % while
 
 % determining the eigenvalue based on the eigenvector
-ev = abs(u' * multiply3diag(x, y, u));
+ev = u' * multiply3diag(x, y, u);
 
 res = struct('iterations', i, ...
              'last_eigenvector_change', d, ...
-             'eigenvalue', abs(ev));
+             'eigenvalue', ev, ...
+             'eigenvector', u);
 end % function
