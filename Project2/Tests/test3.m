@@ -39,6 +39,10 @@ printLine('-', 75);
     function [A, b, x, y] = generate3system(n, imin, imax)
         x = randi([imin, imax], 1, n);
         y = randi([imin, imax], 1, n-1);
+        while all(x(1:end-1) == y)
+            x = randi([imin, imax], 1, n);
+            y = randi([imin, imax], 1, n-1);
+        end
         A = generate3diag(x, y);
         b = randi([imin, imax], n, 1);
     end
