@@ -42,7 +42,9 @@ for i = 1:testData.numOfTestCases
     end % for
     
     % applying linear regression:
-    [actual, ~] = linear_regression(1:testData.iter(i), log10(error));
+    iter = 1:testData.iter(i);
+    [actual, ~] = linear_regression(iter(error > eps), ...
+        log10(error(error > eps)));
     expected = log10(eig2/eig1);
     displayTestCase();
 end % for
