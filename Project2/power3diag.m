@@ -39,7 +39,7 @@ b = false;
 u = u / norm(u);
 u0 = u;
 [~, idx] = max(abs(u0));
-s0 = sign(u0(idx));
+s0 = sign3diag(u0(idx));
 d = norm(s0*u - s0*u0);
 
 while i < iter && ~b
@@ -52,7 +52,7 @@ while i < iter && ~b
     % finding sign of the maximal coefficient to ensure consistency in
     % calculating change in eigenvectors
     [~, idx] = max(abs(u));
-    s = sign(u(idx));
+    s = sign3diag(u(idx));
 
     % evaluating stop condition
     d = norm(s*u - s0*u0);
