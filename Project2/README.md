@@ -17,28 +17,39 @@ The aim of the project was to implement a function which calculates [the conditi
 
 The matrix is stored in vectors $x$ and $y$. Thanks to the memory-efficient storage of the matrix, computations for huge matrices (e.g. size of $200000$) are possible.
 
+$$ cond(A) = \frac{|\lambda_{max}|}{|\lambda_{min}|} $$
+
 ## About the Implementation:
 
 MATLAB was the imposed programming language for the implementation of the project.
 
 ## More on the numerical methods used:
 
+To obtain the $\lambda_{max}$ the power method was implemented. The power method is a relatively slow eigenvalue algorithm, since for a general matrix $A$ the most time-consuming operation of the algorithm is the multiplication of matrix by a vector. Yet, in the case of tridiagonal matrices, the multiplication can be implemented in such a way, so as to have linear complexity.
+
+To obtain $\lambda_{min}$ the inverse power method was implemented. The inverse iteration algorithm requires solving a linear system or calculating the inverse of the matrix. For non-structured matrices this requires $O(n^{3})$ operations. 
+However, in the implementation of `inverse3diag` function, Householder's reflections are being used in order to transform the matrix to an upper-triangular form. 
+
+Householder's reflection is a linear transformation that describes a reflection about a plane or hyperplane containing the origin. It is used to annihilate the entries below the main diagonal of the matrix. 
+
+The Householder matrix can be defined as follows:
+
+$$H = I - 2 \cdot \frac{uu^*}{\||u\||^2} $$
+
+where:
+- $I$ is an identity matrix
+- $u$ is a vector that is orthogonal to the hyperplane
+- $u^*$ denotes conjugate transpose of $u$
+- $\||u\||$ is the norm of the vector $u$.
 
 <!-- 
-## Table of Contents:
-
 - [Numerical tests](#numerical-tests)
 - [Presentation](#presentation)
 
-
-
 ## Numerical tests:
-
 ## Presentation:
-
 In the `Presentation` folder a file called `P2Z20_AGR` can be found.
 As the academic course was conducted in Polish, all the contents of the presentation is sadly available only in Polish.
-
 -->
 
 ## Author:
