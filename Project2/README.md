@@ -25,10 +25,10 @@ MATLAB was the imposed programming language for the implementation of the projec
 
 ## More on the numerical methods used:
 
-To obtain the $\lambda_{max}$ the power method was implemented. The power method is a relatively slow eigenvalue algorithm, since for a general matrix $A$ the most time-consuming operation of the algorithm is the multiplication of matrix by a vector. Yet, in the case of tridiagonal matrices, the multiplication can be implemented in such a way, so as to have linear complexity.
+To obtain the $\lambda_{max}$ the power method was implemented (`power3diag` function). The power method is a relatively slow eigenvalue algorithm, since for a general matrix $A$ the most time-consuming operation of the algorithm is the multiplication of matrix by a vector. Yet, in the case of tridiagonal matrices, the multiplication can be implemented in such a way, so as to have linear complexity.
 
-To obtain $\lambda_{min}$ the inverse power method was implemented. The inverse iteration algorithm requires solving a linear system or calculating the inverse of the matrix. For non-structured matrices this requires $O(n^{3})$ operations. 
-However, in the implementation of `inverse3diag` function, Householder's reflections are being used in order to transform the matrix to an upper-triangular form. 
+To obtain $\lambda_{min}$ the inverse power method was implemented (`inverse3diag` function). The inverse iteration algorithm requires solving a linear system or calculating the inverse of the matrix. For non-structured matrices this requires $O(n^{3})$ operations. 
+However, in the implementation of `inverse3diag` function, Householder's reflections are being used in order to transform the matrix to an upper-triangular form (`transform3diag` function). 
 
 Householder's reflection is a linear transformation that describes a reflection about a plane or hyperplane containing the origin. It is used to annihilate the entries below the main diagonal of the matrix. 
 
