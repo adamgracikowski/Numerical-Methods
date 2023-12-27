@@ -4,7 +4,9 @@ function T = eigs3diag(eigs)
 %
 % This function generates a tridiagonal, symmetric and real matrix T, which
 % eigenvalues are equal to respective elements of the vector eigs.
-% The matrix T is generated using Givens rotation matrices.
+% The matrix T is generated using Givens rotation matrices. At most half of
+% the elements on the subdiagonal and supradiagonal of the matrix T 
+% are non-zero.
 % INPUT:
 %   eigs - vector of eigenvalues
 % OUTPUT:
