@@ -49,6 +49,11 @@ for i = 1:testData.numOfTestCases
     displayTestCase();
 end % for
 
+% displaying test summary:
+fprintf("Total time (power3diag) in seconds: %10.6f\n", ...
+    testing_time);
+printLine('-', 75);
+
     function [A, x, y] = generate3toeplitz(n, a, b)
         x = a * ones(1, n);
         y = b * ones(1, n-1);
