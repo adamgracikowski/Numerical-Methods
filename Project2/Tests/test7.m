@@ -1,4 +1,4 @@
-function [ErrorsCases] = test7()
+function [] = test7()
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
@@ -21,8 +21,6 @@ end % for
 pauseWithPrompt("Press any key to continue...");
 printLine('-', 75);
 
-ErrorsCases = cell(1, testData.numOfTestCases);
-
 for i = 1:testData.numOfTestCases
     % setting up a test case:
     n = testData.n(i); a = testData.a(i); b = testData.b(i);
@@ -40,17 +38,22 @@ for i = 1:testData.numOfTestCases
         % measuring execution time:
         tic; result = inverse3diag(x, y, 0, j, u);
         testing_time = testing_time + toc;
-        error(j) = result.last_eigenvector_change;
+        error(j) = norm(A*result.eigenvector - ...
+            result.eigenvalue*result.eigenvector);
     end % for
-    ErrorsCases{i} = error;
     
     % applying linear regression:
     iter = 1:testData.iter(i);
     [actual, ~] = linear_regression(iter(error > eps), ...
         log10(error(error > eps)));
-    expected = log10(eig2/eig1);
+    expected = log10(eig1/eig2);
     displayTestCase();
 end % for
+
+% displaying test summary:
+fprintf("Total time (power3diag) in seconds: %10.6f\n", ...
+    testing_time);
+printLine('-', 75);
 
     function [A, x, y] = generate3toeplitz(n, a, b)
         x = a * ones(1, n);
