@@ -42,7 +42,7 @@ printLine('-', 75);
             "Iterations:");
         fprintf("Test Case %d:\n", i);
         fprintf("Matrix: %s\n", testData.names(i));
-        fprintf_matrix(A, 2, 0);
+        fprintf_matrix(A, 5, 2);
         shouldPause = size(A, 1) > 4;
         if shouldPause
             pauseWithPrompt("Press any key to continue...");
