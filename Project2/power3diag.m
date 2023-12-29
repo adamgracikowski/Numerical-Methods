@@ -25,17 +25,17 @@ function res = power3diag(x, y, tol, iter, u)
 %        res.last_eigenvector_change - the value of the norm evaluated
 %        for the stop condition in the last iteration of the power method.
 
-% handling default arguments
+% handling default arguments:
 if nargin < 5; u = randn(length(x), 1); end
 if nargin < 4; iter = 1000; end
 if nargin < 3; tol = 1e-10; end
 
-% iteration counter
+% iteration counter:
 i = 0;
-% stop condition based on tolerance, initially set to false
+% stop condition based on tolerance, initially set to false:
 b = false;
 
-% preliminary for the main loop
+% preliminary for the main loop:
 u = u / norm(u);
 u0 = u;
 [~, idx] = max(abs(u0));
@@ -43,29 +43,29 @@ s0 = sign3diag(u0(idx));
 d = norm(s0*u - s0*u0);
 
 while i < iter && ~b
-    % power method step
+    % power method step:
     u = multiply3diag(x, y, u);
 
-    % normalisation
+    % normalisation:
     u = u / norm(u);
 
     % finding sign of the maximal coefficient to ensure consistency in
-    % calculating change in eigenvectors
+    % calculating change in eigenvectors:
     [~, idx] = max(abs(u));
     s = sign3diag(u(idx));
 
-    % evaluating stop condition
+    % evaluating stop condition:
     d = norm(s*u - s0*u0);
     b = d < tol;
 
-    % updating the previous iteration parameters
+    % updating the previous iteration parameters:
     u0 = u;
     s0 = s;
 
     i = i + 1;
 end % while
 
-% determining the eigenvalue based on the eigenvector
+% determining the eigenvalue based on the eigenvector:
 ev = u' * multiply3diag(x, y, u);
 
 res = struct('iterations', i, ...

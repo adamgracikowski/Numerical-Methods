@@ -17,7 +17,7 @@ function u = multiply3diag(x, y, v)
 %   u - result of the multiplication, that is a column vector, which length
 %       is equal to the size of the tridiagonal matrix.
 
-% size of the problem
+% size of the problem:
 n = length(x);
 
 u = 0*v;

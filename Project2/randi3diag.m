@@ -12,14 +12,16 @@ function T = randi3diag(n, imin, imax)
 %   imax - right verge of the interval, from which elements of the matrix
 %          are randomly chosen.
 % Output:
-%   T - tridiagonal matrix
+%   T - tridiagonal matrix.
 
+% generating diagonals:
 x = randi([imin, imax], 1, n);
 y = randi([imin, imax], 1, n-1);
 while all(x(1:end-1) == y)
     x = randi([imin, imax], 1, n);
     y = randi([imin, imax], 1, n-1);
 end % while
+
 T = generate3diag(x, y);
 
 end % function

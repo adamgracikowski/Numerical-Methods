@@ -9,7 +9,7 @@ function T = generate3diag(x, y)
 %   x - vector containing elements on the main diagonal of the matrix.
 %   y - vector containing elements on the subdiagonal of the matrix.
 % Output:
-%   T - tridiagonal matrix
+%   T - tridiagonal matrix.
 
 T = diag(y, -1) + diag(x) + diag(y, 1);
 

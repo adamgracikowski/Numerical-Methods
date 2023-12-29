@@ -5,33 +5,32 @@ function T = eigs3diag(eigs)
 % This function generates a tridiagonal, symmetric and real matrix T, which
 % eigenvalues are equal to respective elements of the vector eigs.
 % The matrix T is generated using Givens rotation matrices. At most half of
-% the elements on the subdiagonal and supradiagonal of the matrix T 
+% the elements on the subdiagonal and supradiagonal of the matrix T
 % are non-zero.
 % INPUT:
-%   eigs - vector of eigenvalues
+% eigs - vector of eigenvalues.
 % OUTPUT:
-%   T - tridiagonal, symmetric and real matrix which eigenvalues are
-%       specified by eigs. The size of the matrix is equal to the length 
-%       of the vector eigs.
+% T    - tridiagonal, symmetric and real matrix which eigenvalues are
+%        specified by eigs. The size of the matrix is equal to the length
+%        of the vector eigs.
 
 n = length(eigs);
 
-% starting with the diagonal matrix 
+% starting with the diagonal matrix:
 T = diag(eigs);
 
 for i = 1:2:n-1
-    % the angle theta is randomly chosen from the interval (0, pi)
+    % the angle theta is randomly chosen from the interval (0, pi):
     G = givens(i, n, rand * pi);
-    % applying Givens rotation
+    % applying Givens rotation:
     T = G*T*G';
 end % for
 
-function G = givens(i, n, theta)
-    % generates a Givens rotation matrix
-    G = eye(n);
-    c = cos(theta);
-    s = sin(theta);
-    G(i:i+1, i:i+1) = [c -s; s c];
-end
-
+    function G = givens(i, n, theta)
+        % generates a Givens rotation matrix:
+        G = eye(n);
+        c = cos(theta);
+        s = sin(theta);
+        G(i:i+1, i:i+1) = [c -s; s c];
+    end
 end % function

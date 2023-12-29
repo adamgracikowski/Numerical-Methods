@@ -3,7 +3,7 @@ function res = cond3diag(x, y, tol, iter)
 % Adam Grącikowski, 327350
 %
 % Calculating the condition number of the tridiagonal, symmetric and real
-% matrix, which is stored in vectors x and y. The conditional number is
+% matrix, which is stored in vectors x and y. The condition number is
 % defined as the absolute value of the quotient of the eigenvalue returned 
 % by the power method and the eigenvalue returned by the inverse power
 % method. For the implementation of the inverse power method Householder
@@ -43,26 +43,26 @@ function res = cond3diag(x, y, tol, iter)
 %        evaluated for the stop condition in the last iteration 
 %        of the power method.
 %        res.inverse.eigenvalue - analogous to res.power.eigenvalue.
-%        res.inverse.eigenvector - analogous to res.power.eigenvector
-%        res.inverse.iterations - analogous to res.power.iterations
+%        res.inverse.eigenvector - analogous to res.power.eigenvector.
+%        res.inverse.iterations - analogous to res.power.iterations.
 %        res.inverse.last_eigenvector_change - analogous to 
-%        res.power.last_eigenvector_change
+%        res.power.last_eigenvector_change.
 
-% handling defaut arguments
+% handling defaut arguments:
 if nargin < 4; iter = [1000, 1000];
 elseif length(iter) == 1; iter = [iter, iter];
-end
+end % if
 if nargin < 3; tol = [1e-10, 1e-10];
 elseif length(tol) == 1; tol = [tol, tol];
-end
+end % if
 
-% invoking power method
+% invoking power method:
 power = power3diag(x, y, tol(1), iter(1));
 
-% invoking inverse power method
+% invoking inverse power method:
 inverse = inverse3diag(x, y, tol(2), iter(2));
 
-% evaluating condition number of the matrix
+% evaluating condition number of the matrix:
 condition_number = abs(power.eigenvalue / inverse.eigenvalue);
 
 res = struct('power', power, ...

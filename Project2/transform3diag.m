@@ -20,7 +20,7 @@ function [x, y, z, U] = transform3diag(x, y)
 %       y and z), which contains (its respective columns) non-zero elements
 %       of vectors used in Householder reflections.
 
-% size of the problem
+% size of the problem:
 n = length(x);
 
 U = zeros(2, n-1);
@@ -29,12 +29,12 @@ y1 = y;
 I = eye(2);
 
 for i = 1:n-1
-    % evaluating householder reflection
+    % evaluating householder reflection:
     ai = [x(i); y1(i)];
     u = ai + sign(ai(1))*[norm(ai); 0];
     h = I - 2*(u*u')/(u'*u);
 
-    % updating matrix elements
+    % updating matrix elements:
     p = h*[x(i), y(i); y1(i), x(i+1)];
     x(i) = p(1,1); 
     x(i+1) = p(2,2); 
@@ -42,12 +42,12 @@ for i = 1:n-1
     y1(i) = 0;
 
     if i < n-1
-        % filling additional z diagonal
+        % filling additional z diagonal:
         z(i) = h(1,1)*z(i) + h(1,2)*y(i+1);
         y(i+1) = h(2,2)*y(i+1);
     end % if
     
-    % storing u vector
+    % storing u vector:
     U(:,i) = u;
 end % for
 
