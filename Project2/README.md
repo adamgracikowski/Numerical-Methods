@@ -8,6 +8,8 @@ This project is being implemented as a part of Numerical Methods 2 academic cour
 - [Objective of the project](#objective-of-the-project)
 - [About the Implementation](#about-the-implementation)
 - [More on the numerical methods used](#more-on-the-numerical-methods-used)
+- [Numerical tests](#numerical-tests)
+- [Presentation](#presentation)
 - [Author](#author)
 - [Contributing](#contributing)
 - [Show your support](#show-your-support)
@@ -32,6 +34,10 @@ However, in the implementation of `inverse3diag` function, Householder's reflect
 
 Householder's reflection is a linear transformation that describes a reflection about a plane or hyperplane containing the origin. It is used to annihilate the entries below the main diagonal of the matrix. 
 
+<p align="center">
+<img src="https://github.com/adamgracikowski/Numerical-Methods/blob/master/Project2/Images/householder_example.PNG" alt="householder_example" width="600"/>
+</p>
+
 The Householder matrix can be defined as follows:
 
 $$H = I - 2 \cdot \frac{uu^*}{\||u\||^2} $$
@@ -42,15 +48,13 @@ where:
 - $u^*$ denotes conjugate transpose of $u$
 - $\||u\||$ is the norm of the vector $u$.
 
-<!-- 
-- [Numerical tests](#numerical-tests)
-- [Presentation](#presentation)
-
 ## Numerical tests:
+In the `Tests` folder numerous numerical tests can be found. 
+Each test contains a detailed description.
+
 ## Presentation:
 In the `Presentation` folder a file called `P2Z20_AGR` can be found.
 As the academic course was conducted in Polish, all the contents of the presentation is sadly available only in Polish.
--->
 
 ## Author:
 
