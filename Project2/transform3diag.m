@@ -31,7 +31,7 @@ I = eye(2);
 for i = 1:n-1
     % evaluating householder reflection:
     ai = [x(i); y1(i)];
-    u = ai + sign(ai(1))*[norm(ai); 0];
+    u = ai + sign3diag(ai(1))*[norm(ai); 0];
     h = I - 2*(u*u')/(u'*u);
 
     % updating matrix elements:
