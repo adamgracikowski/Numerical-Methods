@@ -29,6 +29,7 @@ for i = 1:testData.numOfTestCases
     % evaluating the norm:
     R = generateR(x, y, z);
     Q = generateQ(n, U);
+    differenceQ = norm(Q*Q' - eye(n), "fro") / eps;
     difference = norm(A - Q*R, "fro") / eps;
     
     displayTestCase();
@@ -72,6 +73,8 @@ printLine('-', 75);
         end % if
         fprintf("Norm: norm(A - QR)/eps\n")
         fprintf_matrix(difference, fw, dp);
+        fprintf("Norm: norm(I - Q*Q')/eps\n")
+        fprintf_matrix(differenceQ, fw, dp);
         if i ~= testData.numOfTestCases
             prompt = "Press any key to proceed to " + ...
                 "the next test case...\n";
