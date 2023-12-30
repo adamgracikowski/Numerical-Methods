@@ -1,4 +1,4 @@
-function [x, y, z, d, P, K] = lu3diag(x, y, z)
+function [y, z, d, P, K] = lu3diag(x, y, z)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
@@ -9,7 +9,6 @@ function [x, y, z, d, P, K] = lu3diag(x, y, z)
 %   y - main diagonal of the tridiagonal matrix.
 %   z - supradiagonal of the tridiagonal matrix.
 % OUTPUT:
-%   x - subdiagonal after GEPP.
 %   y - main diagonal after GEPP.
 %   z - supradiagonal after GEPP.
 %   d - additional diagonal with non-zero elements (the one above z).
