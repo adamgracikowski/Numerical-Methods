@@ -2,7 +2,7 @@ function T = eigs3diag(eigs)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
-% This function generates a tridiagonal, symmetric and real matrix T, which
+% Generates a tridiagonal, symmetric and real matrix T, which
 % eigenvalues are equal to respective elements of the vector eigs.
 % The matrix T is generated using Givens rotation matrices. At most half of
 % the elements on the subdiagonal and supradiagonal of the matrix T
@@ -14,6 +14,7 @@ function T = eigs3diag(eigs)
 %        specified by eigs. The size of the matrix is equal to the length
 %        of the vector eigs.
 
+% size of the problem:
 n = length(eigs);
 
 % starting with the diagonal matrix:

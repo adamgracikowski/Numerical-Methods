@@ -12,19 +12,20 @@ function b = backsubs3diag(x, y, z, b, U)
 %   z - vector containing elements on the diagonal above y.
 %       It has two elements less than vector x.
 %   b - right-hand side column vector.
-%   U - a 2 by n-1 matrix (where n is the size of the matrix A), which
+%   U - 2 by n-1 matrix (where n is the size of the matrix A), which
 %       contains non-zero elements of vectors used in Householder
 %       reflections. Reflections are applied on vector b prior to
-%       performing the backward substitution.
+%       performing backward substitution.
 % Output:
-%   b - solution to the considered system of equation.
+%   b - solution to the considered system of linear equations.
 
 % size of the problem:
 n = length(x);
 
 % applying householder reflections:
 for i = 1:n-1
-    v = b(i:i+1); u = U(:,i);
+    v = b(i:i+1); 
+    u = U(:,i);
     b(i:i+1) = v - 2*(u'*v)/(u'*u)*u;
 end % for
 

@@ -11,6 +11,7 @@ function [] = fprintf_matrix(matrix, fieldWidth, decimalPlaces)
 % decimal_places - a parameter for fprintf determining the number of
 %                  decimal places for one element of the displayed matrix.
 
+% size of the problem:
 [rows, cols] = size(matrix);
 
 % generating a format string:
