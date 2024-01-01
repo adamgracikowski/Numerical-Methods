@@ -33,7 +33,7 @@ b(n) = b(n) - b(n-1)*K(n-1);
 
 % backward substitution:
 b(n) = b(n)/y(n);
-b(n-1) = (b(n-1) - b(n)*z(n-1)) / y(n-1);
+b(n-1) = (b(n-1) - b(n)*z(n-1))/y(n-1);
 
 for i = n-2:-1:1
     b(i) = b(i) - b(i+1)*z(i) - b(i+2)*d(i);

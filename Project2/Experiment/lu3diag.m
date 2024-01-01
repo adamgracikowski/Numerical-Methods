@@ -36,12 +36,14 @@ for i = 1:n-2
     end % if
 
     % evaluating coefficients:
-    k = x(i)/y(i); K(i) = k;
+    k = x(i)/y(i); 
+    K(i) = k;
     y(i+1) = y(i+1) - z(i)*k;
 end % for;
 
 % performing the last iteration of the loop:
-k = x(n-1)/y(n-1); K(n-1) = k;
+k = x(n-1)/y(n-1); 
+K(n-1) = k;
 y(n) = y(n) - z(n-1)*k;
 
 end % function
