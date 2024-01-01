@@ -52,20 +52,20 @@ while i < iter && ~b
     u = backsubs3diag(xd, yd, zd, u, U);
 
     % evaluating stop condition:
-    d = norm(u - u0/ev)*abs(ev);
+    d = norm(u - ev*u0)/abs(ev);
     b = d < tol;
+    
+    % finding eigenvalue based on the current eigenvector:
+    ev = u0'*u;
 
     % normalisation:
     u = u / norm(u);
-
-    % finding eigenvalue based on the current eigenvector:
-    ev = u' * multiply3diag(x, y, u);
 
     i = i + 1;
 end % while
 
 res = struct('iterations', i, ...
              'relative_difference', d, ...
-             'eigenvalue', ev, ...
+             'eigenvalue', 1/ev, ...
              'eigenvector', u);
 end % function
