@@ -38,7 +38,7 @@ for i = 1:testData.numOfTestCases
         % measuring execution time:
         tic; result = power3diag(x, y, 0, j, u);
         testing_time = testing_time + toc;
-        error(j) = result.last_eigenvector_change;
+        error(j) = result.relative_difference;
     end % for
     
     % applying linear regression:

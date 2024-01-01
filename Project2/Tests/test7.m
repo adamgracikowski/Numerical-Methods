@@ -1,4 +1,4 @@
-function [] = test7()
+function [] = test7(func3diag)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
@@ -8,6 +8,9 @@ function [] = test7()
 % https://hal.science/hal-01461924/file/KST.pdf
 % The objective of the test is to evaluate the speed of convergence of the
 % power method.
+
+% handling default arguments:
+if nargin < 1; func3diag = @inverse3diag; end
 
 testData = get_testing_data(7);
 testing_time = 0;
@@ -36,7 +39,7 @@ for i = 1:testData.numOfTestCases
     error = zeros(1, testData.iter(i));
     for j = 1:testData.iter(i)
         % measuring execution time:
-        tic; result = inverse3diag(x, y, 0, j, u);
+        tic; result = func3diag(x, y, 0, j, u);
         testing_time = testing_time + toc;
         error(j) = norm(A*result.eigenvector - ...
             result.eigenvalue*result.eigenvector);

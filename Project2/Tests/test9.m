@@ -1,10 +1,13 @@
-function [] = test9()
+function [] = test9(func3diag)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
 % Test for correctness of the implementation of the inverse3diag 
 % function in terms of achieving the specified accuracy of 
 % approximation of the eigenvalue with the least absolute value. 
+
+% handling default arguments:
+if nargin < 1; func3diag = @inverse3diag; end
 
 testData = get_testing_data(9);
 testing_time = 0;
@@ -67,7 +70,7 @@ printLine('-', 75);
         printLine('-', headerLength, '+', '+');
         for j = 1:length(testData.tol)
             % measuring execution time:
-            tic; result = inverse3diag(x, y, testData.tol(j), ...
+            tic; result = func3diag(x, y, testData.tol(j), ...
                 testData.iter, u);
             testing_time = testing_time + toc;
             

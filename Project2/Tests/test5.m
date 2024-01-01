@@ -37,8 +37,8 @@ for i = 1:testData.numOfTestCases
     cond_actual = result.cond;
 
     % evaluating the absolute error:
-    difference(1) = result.power.last_eigenvector_change/eps;
-    difference(2) = result.inverse.last_eigenvector_change/eps;
+    difference(1) = result.power.relative_difference/eps;
+    difference(2) = result.inverse.relative_difference/eps;
     difference(3) = abs(cond_expected - cond_actual)/eps;
 
     displayTestCase();

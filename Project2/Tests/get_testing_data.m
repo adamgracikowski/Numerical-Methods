@@ -2,9 +2,9 @@ function [testData] = get_testing_data(testNumber)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
-% The sole purpose of this function is setting up data
-% for testing functions from 1 to 9.
+% Sets up data for testing functions from 1 to 9.
 
+% argument validation:
 if ~ismember(testNumber, 1:9)
     error("Invalid test number provided.");
 end % if
@@ -149,6 +149,7 @@ if testNumber == 6
     testData.a = [2, 4, 7, 5, 7];
     testData.b = [5, 6, 8, 3, 6];
     testData.iter = [40, 40, 60, 150, 150];
+    return;
 end % if
 
 if testNumber == 7
@@ -178,6 +179,7 @@ if testNumber == 7
     testData.a = [2, 9, 7, 5, 7];
     testData.b = [5, 1, 8, 3, 6];
     testData.iter = [40, 60, 30, 50, 40];
+    return;
 end % if
 
 if testNumber == 8
@@ -200,6 +202,7 @@ if testNumber == 8
     testData.numOfTestCases = length(testData.A);
     testData.tol = 10.^(-1:-1:-15);
     testData.iter = 1e6;
+    return;
 end % if
 
 if testNumber == 9
@@ -228,6 +231,7 @@ if testNumber == 9
     testData.numOfTestCases = length(testData.A);
     testData.tol = 10.^(-1:-1:-15);
     testData.iter = 1e6;
+    return;
 end % if
 
 end % function
