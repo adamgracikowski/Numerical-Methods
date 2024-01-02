@@ -34,28 +34,20 @@ if nargin < 3; tol = 1e-10; end
 i = 0;
 % initial value for the quotient evaluated for the stop condition:
 d = tol + 1;
-% stop condition based on tolerance flag:
-b = false;
-
 % preliminary for the main loop:
 u = u / norm(u);
 ev = u' * multiply3diag(x, y, u);
 
-while i < iter && ~b
+while i < iter && d > tol
     % power method step:
     u0 = u;
-    u = multiply3diag(x, y, u);
-    
+    u = multiply3diag(x, y, u);    
     % evaluating stop condition:
     d = norm(u - ev*u0)/abs(ev);
-    b = d < tol;
-
     % finding eigenvalue based on the current eigenvector:
     ev = u0'*u;
-
     % normalisation:
     u = u / norm(u);
-
     i = i + 1;
 end % while
 
