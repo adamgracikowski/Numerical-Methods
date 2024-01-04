@@ -2,7 +2,7 @@ function [] = test4()
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
-% Test for cond3diag function for the case of Toeplitz matrices.
+% Test for P2Z20_AGR_cond3diag function for the case of Toeplitz matrices.
 % The formula for eigenvalues used in test4, with a proper proof and
 % explanation can be found here: 
 % https://hal.science/hal-01461924/file/KST.pdf
@@ -38,7 +38,7 @@ for i = 1:testData.numOfTestCases
     cond_expected = abs(eig_power_expected/eig_inverse_expected);
     
     % measuring execution time:
-    tic; result = cond3diag(x, y);
+    tic; result = P2Z20_AGR_cond3diag(x, y);
     testing_time = testing_time + toc;
     eig_power_actual = result.power.eigenvalue;
     eig_inverse_actual = result.inverse.eigenvalue;

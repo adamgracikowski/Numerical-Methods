@@ -2,7 +2,7 @@ function [] = test5()
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
-% Test for cond3diag for the case of huge matrices.
+% Test for P2Z20_AGR_cond3diag for the case of huge matrices.
 
 testData = get_testing_data(5);
 testing_time = 0;
@@ -29,7 +29,7 @@ for i = 1:testData.numOfTestCases
     cond_expected = abs(eig_power_expected/eig_inverse_expected);
 
     % measuring execution time:
-    tic; result = cond3diag(x, y, testData.tol{i}, testData.iter{i});
+    tic; result = P2Z20_AGR_cond3diag(x, y, testData.tol{i}, testData.iter{i});
     testing_time = testing_time + toc;
 
     eig_power_actual = result.power.eigenvalue;
@@ -75,7 +75,7 @@ printLine('-', 75);
         header = sprintf('| %-20s | %-20s | %-20s |', ...
             "Expected:", ...
             "Actual:", ...
-            "Last change (in eps):");
+            "Difference (in eps):");
         fprintf("Test Case %d:\n", i);
         fprintf("Matrix: %d x %d\n", n, n);
         printTable("Power Method:", header, ...

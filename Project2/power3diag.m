@@ -45,7 +45,7 @@ while i < iter && d > tol
     % evaluating stop condition:
     d = norm(u - ev*u0)/abs(ev);
     % finding eigenvalue based on the current eigenvector:
-    ev = u0'*u;
+    ev = u0' * u;
     % normalisation:
     u = u / norm(u);
     i = i + 1;

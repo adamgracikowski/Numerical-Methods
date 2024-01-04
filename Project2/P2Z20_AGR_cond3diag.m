@@ -1,4 +1,4 @@
-function res = cond3diag(x, y, tol, iter)
+function res = P2Z20_AGR_cond3diag(x, y, tol, iter)
 % Project 2, Assignment 20
 % Adam Grącikowski, 327350
 %
@@ -31,7 +31,7 @@ function res = cond3diag(x, y, tol, iter)
 % OUTPUT:
 % res  - structure with the following fields:
 %        res.cond - condition number defined as a absolute value of the 
-%        quotient of the eigenvalue returned from the power method and the
+%        quotient of the eigenvalue returned by the power method and the
 %        eigenvalue returned by the inverse power method.
 %        res.power.eigenvalue - eigenvalue returned by the inverse power
 %        method.
@@ -39,14 +39,13 @@ function res = cond3diag(x, y, tol, iter)
 %        res.power.eigenvalue.
 %        res.power.iterations - number of the iterations performed by the
 %        algorithm.
-%        res.power.last_eigenvector_change - the value of the norm 
-%        evaluated for the stop condition in the last iteration 
-%        of the power method.
+%        res.power.relative_difference - the value of the relative 
+%        difference in the last iteration of the algorithm.
 %        res.inverse.eigenvalue - analogous to res.power.eigenvalue.
 %        res.inverse.eigenvector - analogous to res.power.eigenvector.
 %        res.inverse.iterations - analogous to res.power.iterations.
-%        res.inverse.last_eigenvector_change - analogous to 
-%        res.power.last_eigenvector_change.
+%        res.inverse.relative_difference - analogous to 
+%        res.power.relative_difference.
 
 % handling defaut arguments:
 if nargin < 4; iter = [1000, 1000];
